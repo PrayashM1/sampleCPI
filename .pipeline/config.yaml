@@ -1,0 +1,11 @@
+stages:
+  Build:
+    cpiBuild:
+      productiveSystem: false
+  Deploy:
+    cpiDeploy:
+      credentialId: CPI_CREDENTIALS
+      integrationFlowName: MyIntegrationFlow
+      packageName: MyCpiPackage
+      filePath: iflow/filter_iflow.zip
+      
