@@ -1,6 +1,5 @@
 general:
-  verbose: true
-  productiveBranch: main
+  productiveBranch: 'main'
 
 stages:
   Upload:
@@ -12,16 +11,12 @@ stages:
 
 steps:
   integrationArtifactUpload:
+    host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
-    filePath: 'filter_iflow.zip'
     integrationFlowId: 'filter_iflow'
-    platform: 'CF'
-    host: 'https://us10-integration.cfapps.sap.hana.ondemand.com'
-    oAuthTokenProviderUrl: 'https://uat-2fp4a4tq.authentication.us10.hana.ondemand.com/oauth/token'
-  
+    integrationFlowFilePath: 'filter_iflow.zip'
+
   integrationArtifactDeploy:
+    host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
-    platform: 'CF'
-    host: 'https://us10-integration.cfapps.sap.hana.ondemand.com'
-    oAuthTokenProviderUrl: 'https://uat-2fp4a4tq.authentication.us10.hana.ondemand.com/oauth/token'
