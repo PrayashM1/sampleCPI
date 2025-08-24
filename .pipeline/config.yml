@@ -1,15 +1,25 @@
 general:
   verbose: true
+  productiveBranch: main
 
 stages:
   Upload:
     enabled: true
   Deploy:
-    enabled: false
-  Integration Test:
-    enabled: false
+    enabled: true
 
 steps:
   integrationArtifactUpload:
-    credentialsId: service-key
-    filePath: package.zip
+    credentialsId: 'service-key'
+    filePath: 'filter_iflow.zip'
+    integrationFlowId: 'filter_iflow'
+    platform: 'CF'
+    host: 'https://us10-integration.cfapps.sap.hana.ondemand.com'
+    oAuthTokenProviderUrl: 'https://uat-2fp4a4tq.authentication.us10.hana.ondemand.com/oauth/token'
+  
+  integrationArtifactDeploy:
+    credentialsId: 'service-key'
+    integrationFlowId: 'filter_iflow'
+    platform: 'CF'
+    host: 'https://us10-integration.cfapps.sap.hana.ondemand.com'
+    oAuthTokenProviderUrl: 'https://uat-2fp4a4tq.authentication.us10.hana.ondemand.com/oauth/token'
