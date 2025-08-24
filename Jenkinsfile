@@ -1,4 +1,4 @@
-@Library('piper-lib-os') _   // SAP Jenkins library
+@Library('piper-lib-os') _   // load SAP Piper library (built-in on SAP BTP CI/CD)
 
 pipeline {
     agent any
@@ -7,19 +7,37 @@ pipeline {
         stage('Prepare') {
             steps {
                 checkout scm
-                setupCommonPipelineEnvironment script: this
             }
         }
 
-        stage('Upload IFlow') {
+        stage('Upload Integration Artifact') {
             steps {
-                integrationArtifactUpload script: this
+                withCredentials([string(credentialsId: 'service-key', variable: 'CPI_SERVICE_KEY_JSON')]) {
+                    sh '''
+                        printf "%s" "$CPI_SERVICE_KEY_JSON" > serviceKey.json
+
+                        echo "Service key file size: $(wc -c < serviceKey.json) bytes"
+
+                        piper integrationArtifactUpload \
+                          --serviceKey serviceKey.json \
+                          --integrationFlowId filter_iflow \
+                          --integrationFlowFilePath filter_iflow.zip
+                    '''
+                }
             }
         }
 
-        stage('Deploy IFlow') {
+        stage('Deploy Integration Artifact') {
             steps {
-                integrationArtifactDeploy script: this
+                withCredentials([string(credentialsId: 'service-key', variable: 'CPI_SERVICE_KEY_JSON')]) {
+                    sh '''
+                        printf "%s" "$CPI_SERVICE_KEY_JSON" > serviceKey.json
+
+                        piper integrationArtifactDeploy \
+                          --serviceKey serviceKey.json \
+                          --integrationFlowId filter_iflow
+                    '''
+                }
             }
         }
     }
