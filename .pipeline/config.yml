@@ -1,10 +1,14 @@
-stages:
-  Build:
-    cpiBuild:
-      productiveSystem: false
-  Deploy:
-    cpiDeploy:
-      credentialId: CPI_CREDENTIALS
-      integrationFlowName: MyIntegrationFlow
-      packageName: MyCpiPackage
-      filePath: iflow/filter_iflow.zip
+general:
+  productiveBranch: 'main'   # adjust if you use master/main/dev
+
+steps:
+  integrationArtifactUpload:
+    host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
+    credentialsId: 'service-key'
+    integrationFlowId: 'filter_iflow'
+    integrationFlowFilePath: 'filter_iflow.zip'
+
+  integrationArtifactDeploy:
+    host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
+    credentialsId: 'service-key'
+    integrationFlowId: 'filter_iflow'
