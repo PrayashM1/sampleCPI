@@ -1,24 +1,10 @@
 general:
   productiveBranch: 'main'
 
-stages:
-  Upload:
-    enabled: true
-  Deploy:
-    enabled: true
-  'Integration Test':
-    enabled: false
-
 steps:
-  integrationArtifactUpload:
+  # Dummy step to validate that the secret is accessible
+  # We won't deploy or upload any artifact here
+  integrationArtifactGetMplStatus:
     host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
-    integrationFlowFilePath: 'filter_iflow.zip'
-    serviceKeyCredentialsId: 'service-key'
-
-  integrationArtifactDeploy:
-    host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
-    credentialsId: 'service-key'
-    integrationFlowId: 'filter_iflow'
-    serviceKeyCredentialsId: 'service-key'
