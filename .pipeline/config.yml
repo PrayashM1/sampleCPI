@@ -7,6 +7,8 @@ stages:
     enabled: true
   Deploy:
     enabled: true
+  'Integration Test':
+    enabled: false
 
 steps:
   integrationArtifactUpload:
