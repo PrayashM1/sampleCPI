@@ -10,6 +10,10 @@ stages:
     enabled: false
 
 steps:
+  shellExecute:
+    script: |
+      echo "=== Testing service-key secret ==="
+      echo "${service-key}"
   integrationArtifactUpload:
     host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
