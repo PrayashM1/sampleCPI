@@ -10,19 +10,15 @@ stages:
     enabled: false
 
 steps:
-  shellExecute:
-    script: |
-      echo "=== Raw Secret from CICD ==="
-      echo "${service-key}"
-      echo "=== Parsed Secret ==="
-      echo "${service-key}" | jq .
   integrationArtifactUpload:
     host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
     integrationFlowFilePath: 'filter_iflow.zip'
+    serviceKeyCredentialsId: 'service-key'
 
   integrationArtifactDeploy:
     host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
+    serviceKeyCredentialsId: 'service-key'
