@@ -1,5 +1,4 @@
-@Library('piper-lib-os') _   // load SAP Piper library (built-in on SAP BTP CI/CD)
-
+@Library('piper-lib-os') _
 pipeline {
     agent any
 

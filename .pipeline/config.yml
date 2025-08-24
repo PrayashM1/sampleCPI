@@ -11,14 +11,14 @@ stages:
 
 steps:
   integrationArtifactUpload:
-    host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
+    host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
     integrationFlowFilePath: 'filter_iflow.zip'
     serviceKeyCredentialsId: 'service-key'
 
   integrationArtifactDeploy:
-    host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
+    host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
     serviceKeyCredentialsId: 'service-key'
