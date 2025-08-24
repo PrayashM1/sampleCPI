@@ -1,5 +1,13 @@
 general:
-  productiveBranch: 'main'   # adjust if you use master/main/dev
+  productiveBranch: 'main'
+
+stages:
+  Upload:
+    enabled: true
+  Deploy:
+    enabled: true
+  'Integration Test':
+    enabled: false
 
 steps:
   integrationArtifactUpload:
