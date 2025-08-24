@@ -12,8 +12,10 @@ stages:
 steps:
   shellExecute:
     script: |
-      echo "=== Testing service-key secret ==="
+      echo "=== Raw Secret from CICD ==="
       echo "${service-key}"
+      echo "=== Parsed Secret ==="
+      echo "${service-key}" | jq .
   integrationArtifactUpload:
     host: 'https://uat-2fp4a4tq.integrationsuite-trial.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
