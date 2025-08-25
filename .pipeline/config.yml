@@ -15,8 +15,10 @@ steps:
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
     integrationFlowFilePath: 'filter_iflow.zip'
+    packageId: 'sampleCPI'
 
   integrationArtifactDeploy:
     host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
+    packageId: 'sampleCPI'
