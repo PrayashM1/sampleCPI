@@ -6,19 +6,16 @@ stages:
     enabled: true
   Deploy:
     enabled: true
-  'Integration Test':
-    enabled: false
 
 steps:
   integrationArtifactUpload:
-    host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
+    host: 'https://uat-2fp4a4tq.it-cpitrial05.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
-    integrationFlowId: 'filter_iflow'
+    integrationPackageId: 'sampleCPI'       # your package ID
+    integrationFlowId: 'filter_iflow'       # from MANIFEST.MF
     integrationFlowFilePath: 'filter_iflow.zip'
-    packageId: 'sampleCPI'
 
   integrationArtifactDeploy:
-    host: 'https://uat-2fp4a4tq.it-cpitrial05-rt.cfapps.us10-001.hana.ondemand.com'
+    host: 'https://uat-2fp4a4tq.it-cpitrial05.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
     integrationFlowId: 'filter_iflow'
-    packageId: 'sampleCPI'
