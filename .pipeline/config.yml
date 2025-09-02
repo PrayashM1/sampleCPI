@@ -13,7 +13,7 @@ steps:
   integrationArtifactUpload:
     host: 'https://uat-2fp4a4tq.it-cpitrial05.cfapps.us10-001.hana.ondemand.com'
     credentialsId: 'service-key'
-    integrationPackageId: 'sampleCPI'       # your package ID
+    integrationPackageId: 'filteriflow'       # your package ID
     integrationFlowId: 'filter_iflow'       # from MANIFEST.MF
     integrationFlowFilePath: 'filter_iflow.zip'
 
