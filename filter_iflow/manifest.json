@@ -1,0 +1,9 @@
+{
+    "_version": "1.0.0",
+    "id": "filter_iflow",
+    "type": "integrationflow",
+    "name": "filter_iflow",
+    "description": "An example integration flow.",
+    "package": "your-package-id",
+    "version": "1.0.0"
+  }
